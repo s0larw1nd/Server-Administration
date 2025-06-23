@@ -20,6 +20,6 @@ COPY ./src ./src
 
 COPY ./tests ./tests
 
-EXPOSE 8014
+RUN apk add curl
 
-CMD ["/venv/bin/uvicorn", "src.main:app", "--reload"]
+CMD ["/venv/bin/uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8014", "--reload"]
